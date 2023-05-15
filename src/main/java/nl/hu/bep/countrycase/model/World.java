@@ -61,9 +61,14 @@ public class World {
 	}
 	
 	public Country getCountryByCode(String code) {
-		// TODO: Maak deze methode af: return het Country-object voor
-		//  de gevraagde code, of return null als het een niet bekende code is!
-		
+		if (code != null) {
+			for (Country country : allCountries) {
+				if (country.getCode().equals(code)) {
+					return country;
+				}
+			}
+		}
+
 		return null;
 	}
 }

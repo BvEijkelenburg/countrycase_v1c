@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voorbeeld</title>
+    <script>
+        function loadCountries() {
+            fetch("/restservices/countries/")
+                .then(response => response.json())
+                .then(jsonData => {
+                    let myTable = document.querySelector("#countrytable");
+
+                    for (let country of jsonData) {
+                        let newRow = myTable.insertRow();
+
+                        let cell1 = newRow.insertCell(0);
+                        let cell2 = newRow.insertCell(1);
+
+                        cell1.innerHTML = country.name;
+                        cell2.innerHTML = country.code;
+                    }
+                })
+        }
+
+        window.addEventListener("load", function() {
+            loadCountries();
+        });
+    </script>
+</head>
+<body>
+    <table id="countrytable">
+
+    </table>
+</body>
+</html>

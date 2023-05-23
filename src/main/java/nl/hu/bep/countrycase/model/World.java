@@ -1,11 +1,12 @@
 package nl.hu.bep.countrycase.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class World {
+public class World implements Serializable {
 	private List<Country> allCountries = new ArrayList<Country>();
 
 	private static World my_world = new World();
